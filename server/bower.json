@@ -1,0 +1,20 @@
+{
+  "name": "keydyn",
+  "description": "2FA using keystroke dynamics",
+  "main": "index.js",
+  "authors": [
+    "Akshatha Etagi"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/UnMellowYellow/Web-Api",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.0"
+  }
+}

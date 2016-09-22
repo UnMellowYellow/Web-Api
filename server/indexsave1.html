@@ -1,0 +1,92 @@
+<html lang="en">  
+    <head>
+
+    </head>
+    <body>
+        <h1>Hello World!</h1>
+        <div id="future"></div>
+        <div id="spat"></div>
+       <!--  <form id="form" id="chat_form">
+            <input id="chat_input" type="text">
+            <input id="chat_pwd" type="password">
+            <input type="submit" value="Send">
+        </form> -->
+            <input id="chat_input" type="text">
+            <input id="chat_pwd" type="password">
+            <div id="log"></div>
+            <input type="submit" value="Send" id="send">
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="/socket.io/socket.io.js"></script> 
+<script>  
+    var socket = io.connect('http://localhost:1337');
+    socket.on('connect', function(data) {
+        socket.emit('join', 'Hello World from client');
+    });
+    socket.on('messages',function(data){
+        alert(data);
+    });
+    // $("#send").onClick({
+    //     socket.emit('join',{
+    //         'text' : $("#chat_input").val(),
+    //         'pwd' : $("#chat_pwd").val()
+    //     });
+    // });
+   </script>
+
+   <script> 
+ 
+
+
+$("#send").click(function(){
+        socket.emit('join',{
+            'text' : $("#chat_input").val(),
+            'pwd' : $("#chat_pwd").val()
+        });
+    });
+</script>
+
+
+<script>
+var i;
+var array = new Array();                                      //declare new array for Ascii values of Password
+$("#chat_input").on("keydown",function(event){
+    //i=i+1;
+    i = array.length;
+    $("#log").html($("#log").text()+ ' ' +event.which);
+    $("#spat").text(String(i));
+    if (event.which!=8)
+    {
+       array[i]=event.which;
+    }
+    else
+        array.pop();
+
+console.log(array);
+});
+
+var starttime;
+starttime=event.timeStamp;
+
+for (i=0;i<array.length-i;i++)
+{
+    KeyPressed[j]= 
+}
+
+
+
+
+//i=0;
+// $(document).ready(function(){
+//     $("#chat_input").keypress(function(){
+//         $("#spat").text(String(i));
+//     });
+// });
+</script>
+    </body>
+</html> 
+
+
+
+
+
+

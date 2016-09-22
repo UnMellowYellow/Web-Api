@@ -1,0 +1,148 @@
+<html lang="en">  
+    <head>
+
+    </head>
+    <body>
+        <h1>Hello World!</h1>
+        <div id="future"></div>
+        <div id="spat"></div>
+       <!--  <form id="form" id="chat_form">
+            <input id="chat_input" type="text">
+            <input id="chat_pwd" type="password">
+            <input type="submit" value="Send">
+        </form> -->
+            <input id="chat_input" type="text">
+            <input id="chat_pwd" type="password">
+            <div id="log"></div>
+            <input type="submit" value="Send" id="send">
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="/socket.io/socket.io.js"></script> 
+<!-- <script>  
+    var socket = io.connect('http://localhost:1337');
+    socket.on('connect', function(data) {
+        socket.emit('join', 'Hello World from client');
+    });
+    socket.on('messages',function(data){
+        alert(data);
+    });
+    // $("#send").onClick({
+    //     socket.emit('join',{
+    //         'text' : $("#chat_input").val(),
+    //         'pwd' : $("#chat_pwd").val()
+    //     });
+    // });
+   </script> -->
+
+   <script> 
+ 
+
+
+/*$("#send").click(function(){
+        socket.emit('join',{
+            'text' : $("#chat_input").val(),
+            'pwd' : $("#chat_pwd").val()
+        });
+    });*/
+</script>
+<script>
+function Keystroke(keyCode, timeDown, timeUp) {
+    this.keyCode = keyCode;
+    this.timeDown = timeDown;
+    this.timeUp = timeUp;
+}
+
+var starttime,endtime;
+
+var i=0;
+var array = new Array();                                      //declare new array for Ascii values of Password
+
+
+$(document).ready(function(){  
+
+    $("#chat_pwd").on("keydown",function(event){
+        //i=i+1;
+        i = array.length;
+        //$("#log").html($("#log").text()+ ' ' +event.which);
+        //$("#spat").text(String(i));
+        if (event.keyCode==8){
+           array.pop();
+        }
+        else{
+            //array[i]=event.which;
+            starttime=event.timeStamp;
+            i=array.length;
+            // array[i]= new Keystroke( event.keyCode, event.timeStamp, 0);
+            array[i]= {"keyCode":event.keyCode,"timeDown": event.timeStamp,"timeUp": 0};
+        }
+
+
+        console.log(array);
+     
+        if (event.keyCode==13){
+            /*var PressDTwo=new Array();       //array to hold the difference between the TWO consecutive pressed keys
+            var LeaveDTwo=new Array();       //array to hold the difference between the TWO consecutive left keys
+            var PressOne= new Array();*/       //array to hold the time of ONE press of a SINGLE key
+            var final_array= new Array();           //array to hold 3*(no of letters in password) attributes)
+             var password = $("#chat_pwd").val();
+             var uname = $("#chat_input").val();
+            var k;
+            for (k=0;k< array.length-1; k=k+3){
+                final_array[k]= array.KeyCode;
+                final_array[k+1]=array.timeDown;
+                final_array[k+2]= array.timeUp;
+                /*PressOne[i]= array[i].timeUp - array[i].timeDown;
+                final_array[i]=  
+                PressDTwo[i]= array[i].timeDown - array[i+1].timeUp;
+                LeaveDTwo[i]= array[i].*/
+            }
+        //final_array contains all features required. Now, put it in a JSON file format.
+
+            var final_json = {
+                            "Name": uname,
+                            "Password": password,
+                            "Features": array                 //json file
+                        }
+            console.log(final_json);
+            var socket = io.connect('http://localhost:1337');
+            socket.on('connect', function(data) {
+                socket.emit('join', final_json);
+            });
+            socket.on('messages',function(data){
+                // alert(data);
+            });
+        };
+
+    });
+
+
+    $("#chat_pwd").keyup(function(event) {
+        if(event.keyCode != 8){
+           // $("#end").text( event.timeStamp + '  ' + event.keyCode);
+           endtime = event.timeStamp;
+           var current,i;
+           for( i = array.length-1; i>=0; i--){
+           if( array[i].keyCode == event.keyCode && array[i].timeUp == 0) {
+                array[i].timeUp = event.timeStamp;
+                break;
+             }
+           }
+        }
+    });
+});
+
+// var starttime;
+// starttime=event.timeStamp;
+
+// for (i=0;i<array.length-i;i++)
+// {
+//     KeyPresse[j]= 
+// }
+</script>
+    </body>
+</html> 
+
+
+
+
+
+

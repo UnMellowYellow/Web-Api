@@ -1,0 +1,91 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'fsevents',
+1 verbose cli   '--no-optional' ]
+2 info using npm@3.5.2
+3 info using node@v4.2.6
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readGlobalPackageData
+7 silly fetchPackageMetaData fsevents
+8 silly fetchNamedPackageData fsevents
+9 silly mapToRegistry name fsevents
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry uri https://registry.npmjs.org/fsevents
+13 verbose request uri https://registry.npmjs.org/fsevents
+14 verbose request no auth needed
+15 info attempt registry request try #1 at 3:36:47 PM
+16 verbose request id 6870180d53298ee0
+17 verbose etag "69O0UF1UA8LG7BQRJME2P5RBR"
+18 http request GET https://registry.npmjs.org/fsevents
+19 http 304 https://registry.npmjs.org/fsevents
+20 verbose headers { date: 'Thu, 22 Sep 2016 10:06:50 GMT',
+20 verbose headers   via: '1.1 varnish',
+20 verbose headers   'cache-control': 'max-age=300',
+20 verbose headers   etag: '"69O0UF1UA8LG7BQRJME2P5RBR"',
+20 verbose headers   age: '241',
+20 verbose headers   connection: 'keep-alive',
+20 verbose headers   'x-served-by': 'cache-sin6923-SIN',
+20 verbose headers   'x-cache': 'HIT',
+20 verbose headers   'x-cache-hits': '17',
+20 verbose headers   'x-timer': 'S1474538810.806637,VS0,VE0',
+20 verbose headers   vary: 'Accept-Encoding' }
+21 silly get cb [ 304,
+21 silly get   { date: 'Thu, 22 Sep 2016 10:06:50 GMT',
+21 silly get     via: '1.1 varnish',
+21 silly get     'cache-control': 'max-age=300',
+21 silly get     etag: '"69O0UF1UA8LG7BQRJME2P5RBR"',
+21 silly get     age: '241',
+21 silly get     connection: 'keep-alive',
+21 silly get     'x-served-by': 'cache-sin6923-SIN',
+21 silly get     'x-cache': 'HIT',
+21 silly get     'x-cache-hits': '17',
+21 silly get     'x-timer': 'S1474538810.806637,VS0,VE0',
+21 silly get     vary: 'Accept-Encoding' } ]
+22 verbose etag https://registry.npmjs.org/fsevents from cache
+23 verbose get saving fsevents to /home/akshatha/.npm/registry.npmjs.org/fsevents/.cache.json
+24 silly install normalizeTree
+25 silly loadCurrentTree Finishing
+26 silly loadIdealTree Starting
+27 silly install loadIdealTree
+28 silly cloneCurrentTree Starting
+29 silly install cloneCurrentTreeToIdealTree
+30 silly cloneCurrentTree Finishing
+31 silly loadShrinkwrap Starting
+32 silly install loadShrinkwrap
+33 silly loadShrinkwrap Finishing
+34 silly loadAllDepsIntoIdealTree Starting
+35 silly install loadAllDepsIntoIdealTree
+36 silly rollbackFailedOptional Starting
+37 silly rollbackFailedOptional Finishing
+38 silly runTopLevelLifecycles Starting
+39 silly runTopLevelLifecycles Finishing
+40 silly install printInstalled
+41 verbose stack Error: Unsupported
+41 verbose stack     at checkPlatform (/usr/share/npm/node_modules/npm-install-checks/index.js:46:14)
+41 verbose stack     at Array.<anonymous> (/usr/share/npm/node_modules/slide/lib/bind-actor.js:15:8)
+41 verbose stack     at LOOP (/usr/share/npm/node_modules/slide/lib/chain.js:15:14)
+41 verbose stack     at /usr/share/npm/node_modules/slide/lib/chain.js:18:7
+41 verbose stack     at checkEngine (/usr/share/npm/node_modules/npm-install-checks/index.js:25:10)
+41 verbose stack     at Array.<anonymous> (/usr/share/npm/node_modules/slide/lib/bind-actor.js:15:8)
+41 verbose stack     at LOOP (/usr/share/npm/node_modules/slide/lib/chain.js:15:14)
+41 verbose stack     at chain (/usr/share/npm/node_modules/slide/lib/chain.js:20:5)
+41 verbose stack     at module.exports.isInstallable (/usr/share/npm/lib/install/validate-args.js:26:3)
+41 verbose stack     at Array.<anonymous> (/usr/share/npm/node_modules/slide/lib/bind-actor.js:15:8)
+42 verbose pkgid fsevents@1.0.14
+43 verbose cwd /home/akshatha/siemens/Web-Api/server
+44 error Linux 4.4.0-38-generic
+45 error argv "/usr/bin/nodejs" "/usr/bin/npm" "install" "-g" "fsevents" "--no-optional"
+46 error node v4.2.6
+47 error npm  v3.5.2
+48 error code EBADPLATFORM
+49 error notsup Not compatible with your operating system or architecture: fsevents@1.0.14
+50 error notsup Valid OS:    darwin
+50 error notsup Valid Arch:  any
+50 error notsup Actual OS:   linux
+50 error notsup Actual Arch: x64
+51 verbose exit [ 1, true ]
